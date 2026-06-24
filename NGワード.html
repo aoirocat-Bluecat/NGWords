@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGワードゲーム</title>
+
+<style>
+body{
+    font-family:sans-serif;
+    text-align:center;
+    background:#f5f5f5;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    max-width:500px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+#word{
+    font-size:40px;
+    font-weight:bold;
+    color:#e53935;
+    margin:30px 0;
+}
+
+button{
+    padding:12px 24px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.show{
+    background:#2196f3;
+    color:white;
+}
+
+.next{
+    background:#4caf50;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🎭 NGワードゲーム</h1>
+
+    <p>「NGワードを見る」を押して確認！</p>
+
+    <div id="word">？？？</div>
+
+    <button class="show" onclick="showWord()">NGワードを出す</button>
+    <button class="next" onclick="nextWord()">別のお題</button>
+</div>
+
+<script>
+const words = [
+"りんご","みかん","バナナ","ぶどう","いちご","スイカ","メロン","桃","梨","レモン",
+"学校","先生","生徒","教室","黒板","テスト","宿題","給食","体育","文化祭",
+"スマホ","パソコン","タブレット","アプリ","WiFi","充電","イヤホン","カメラ","SNS","LINE",
+"YouTube","TikTok","Instagram","X","配信","動画","チャンネル","登録者","コメント","ショート",
+"ゲーム","アモアス","マイクラ","フォートナイト","VALORANT","スプラトゥーン","ポケモン","マリオ","Switch","PS5",
+"ギター","ピアノ","ドラム","ベース","歌","ライブ","音楽","バンド","作曲","楽譜",
+"猫","犬","ライオン","トラ","ゾウ","キリン","パンダ","ウサギ","ハムスター","ペンギン",
+"北海道","札幌","東京","大阪","名古屋","福岡","沖縄","京都","富士山","新幹線",
+"電車","バス","飛行機","自転車","タクシー","駅","切符","特急","改札","ホーム",
+"夏","冬","春","秋","雪","雨","台風","雷","晴れ","曇り",
+"海","山","川","湖","キャンプ","温泉","旅行","ホテル","観光","写真",
+"映画","アニメ","ドラマ","俳優","声優","ポップコーン","エンドロール","主題歌","上映","スクリーン",
+"カレー","ラーメン","寿司","焼肉","ハンバーガー","ポテト","ピザ","うどん","そば","おにぎり",
+"コンビニ","スーパー","自販機","レジ","お釣り","ポイントカード","買い物","セール","値引き","袋",
+"野球","サッカー","バスケ","バレー","卓球","テニス","ゴール","シュート","ホームラン","優勝",
+"勉強","数学","英語","国語","理科","社会","ノート","鉛筆","消しゴム","定規",
+"クリスマス","ハロウィン","正月","誕生日","バレンタイン","プレゼント","ケーキ","サンタ","お年玉","仮装",
+"警察","消防車","救急車","病院","医者","看護師","薬","注射","診察","手術",
+"宇宙","地球","月","太陽","火星","ロケット","宇宙人","星","ブラックホール","重力",
+"お風呂","歯ブラシ","シャンプー","石鹸","タオル","洗濯","掃除","冷蔵庫","電子レンジ","洗面所",
+"お金","財布","銀行","貯金","硬貨","紙幣","クレジットカード","電子マネー","レシート","ATM",
+"恋愛","告白","デート","結婚","友達","家族","兄弟","姉妹","恋人","記念日",
+"鬼","忍者","侍","魔法使い","ドラゴン","勇者","王様","姫","剣","城",
+"赤","青","黄","緑","紫","黒","白","オレンジ","ピンク","金色",
+"朝","昼","夜","深夜","目覚まし","布団","枕","夢","寝坊","休日",
+"チャットGPT","AI","ロボット","プログラム","HTML","コード","インターネット","検索","サイト","ブラウザ"
+];
+let currentWord = "";
+
+function showWord(){
+    if(currentWord===""){
+        currentWord = words[Math.floor(Math.random()*words.length)];
+    }
+    document.getElementById("word").textContent = currentWord;
+}
+
+function nextWord(){
+    currentWord = "";
+    document.getElementById("word").textContent = "？？？";
+}
+</script>
+
+</body>
+</html>
